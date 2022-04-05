@@ -1,0 +1,20 @@
+CRIANDO APLICAÇÃO NODE.JS COM TYPESCRIPT.
+
+1. docker-compose up --build
+2. docker exec -it micro-videos-typescript-app bash ou docker-compose exec app bash
+3. npm init -y
+4. npm i typescript @types/node ts-node --save-dev
+5. Trocar a versão do @types/node dentro do package.json para a versão mais próxima
+do node que instalamos no nosso dockerfile. Para sabermos as versões do @types/node
+podemos usar o comando "npm view @types/node".
+6. Remover o arquivo package-lock.json e a pasta node_modules.
+7. npm i
+8. Em scripts no package.json adicionar o "ts-node": "ts-node".
+9. npx tsc --init
+10. No arquivo tsconfig.json trocar os seguintes valores:
+- De "target": "es2016" para "target": "es2017"
+- Descomentar o "incremental": true -> é uma compilação incremental que permite que o 
+typescript rode mais rápido.
+- Descomentar o "baseUrl": "./" e trocar para "baseUrl": "./src".
+- Acrescentar "include": ["src/"] após o objeto compilerOptions.
+11. Em scripts no package.json adicionar o "tsc": "tsc".
