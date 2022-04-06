@@ -1,0 +1,9 @@
+ESTRUTURA DE PASTAS BÁSICA DO PROJETO COM DDD E CLEAN ARCH.
+
+A estrutura de pastas varia muito e depende do seu projeto, mas no geral
+temos as seguites pastas: 
+
+1. application -> nessa pasta vai ficar a aplicação.
+2. infra -> nessa pasta vão ficar os frameworks e conexão com o banco de dados.
+3. domain -> nessa pasta vão ficar nossas entidades e o "coração" do nosso negócio,
+como coisas pertencentes ao domínio do nosso negócio e as regras de aplicação.  
