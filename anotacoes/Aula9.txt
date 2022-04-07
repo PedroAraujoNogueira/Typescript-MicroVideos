@@ -1,0 +1,21 @@
+INSTALANDO E CONFIGURANDO JEST
+
+1. docker exec -it micro-videos-typescript-app bash ou docker-compose exec app bash
+2. npm install jest @types/jest --save-dev
+3. npx jest --init
+3.1. Would you like to use Jest when running "test" script in "package.json"? … yes
+3.2. Would you like to use Typescript for the configuration file? … yes
+3.3. Choose the test environment that will be used for testing › node
+3.4. Do you want Jest to add coverage reports? … no
+3.5. Which provider should be used to instrument code for coverage? › v8
+3.6. Automatically clear mock calls, instances and results before every test? … yes
+4. No arquivo jest.config.ts:
+4.1. Descomente o rootDir: undefined e mude para rootDir: "src"
+4.2. Descomente o testRegex: [] e mude para testRegex: ".*\\..*spec\\.ts$"
+Nesse atributo definimos como o jest vai encontrar os arquivos de teste. 
+Toda vez que formos criar um arquivo de teste vamos usar o padrão: nomedoarquivo.spec.ts
+4.3. Descomente o transform: undefined e mude para transform: {"^.+\\.ts?$": ["@swc/jest"] }
+Nesse atributo estamos dizendo para fazer a compilação de qualquer arquivo 
+Typescript usando o swc. 
+5. Vamos adicionar um compilador para Javascript chamado swc.
+npm i @swc/core @swc/jest --save-dev
