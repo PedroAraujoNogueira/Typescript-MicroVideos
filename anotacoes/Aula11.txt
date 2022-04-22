@@ -1,0 +1,5 @@
+DEFININDO AS PROPRIEDADES DA ENTIDADE CATEGORIA
+
+1. A criação do type nos dá uma grande vantagem na manutenção do software,
+pois com ele não precisamos mais nos preocupar com a ordem dos parâmetros
+dentro do construtor.
