@@ -1,0 +1,7 @@
+TESTE CONSTRUCTOR DA ENTIDADE CATEGORIA
+
+As 3 Etapas de um teste segundo Kent Beck são:
+1. Arrange -> O Arrange são os dados de entrada.
+2. Act -> A Act é a ação do teste, como por exemplo, criar uma instancia ou um objeto.
+3. Assert -> O Assert é a validação do resultado.
+Também conhecidos como triple A
