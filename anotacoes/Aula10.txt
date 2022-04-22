@@ -1,0 +1,13 @@
+PIRÂMIDE DE TESTES E COMO ORGANIZA-LOS NOS JAVASCRIPT
+
+1. Normalmente a maior quantidade de testes feitos serão os testes unitários ou testes
+de unidade. Esses testes são mais rápidos e mais baratos e testar apenas uma 
+funcionalidade isolada.
+
+2. O próximo nível da pirâmide são os testes de integração. Esses teste já exigem a 
+integração entre uma funcionalidade e um banco de dados por exemplo. Logo se torna um
+teste mais demorado e que necessita de mais recursos.
+
+3. O nível mais caro e lento da pirâmide são os testes e2e(End to End). Nesse teste 
+nós testamos a aplicação do começo ao fim, ou seja, desde quando o usuário envia uma 
+solicitação até o momento em que o usuário recebe a resposta.
