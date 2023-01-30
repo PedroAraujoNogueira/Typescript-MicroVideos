@@ -1,0 +1,31 @@
+1. Digite na pasta raiz do seu terminal: 
+docker-compose up --build 
+OU
+docker exec -it micro-videos-typescript-app bash
+
+2. Abra outra janela do terminal e digite docker-compose app bash
+
+3. Dentro do bash do app digite: npm init -y
+
+4. Dentro do bash do app digite: npm install typescript ts-node @types/node --save-dev
+
+5. Trocar a versão do @types/node dentro do package.json para a versão mais próxima
+do node que instalamos no nosso dockerfile, no nosso caso a versão mais próxima era 
+a ^14.14.31. Para sabermos as versões do @types/node podemos usar o comando 
+"npm view @types/node".
+5.1. Remover o arquivo package-lock.json e a pasta node_modules.
+5.2. npm i
+
+6. Em scripts no package.json adicionar o "ts-node": "ts-node".
+
+7. npx tsc --init -> Esse comando vai gerar o arquivo que contém as configurações do 
+typescript(tsconfig.json).
+
+8. No arquivo tsconfig.json trocar os seguintes valores:
+- De "target": "es2016" para "target": "es2017"
+- Descomentar o "incremental": true -> é uma compilação incremental que permite que o 
+typescript rode mais rápido.
+- Descomentar o "baseUrl": "./" e trocar para "baseUrl": "./src".
+- Acrescentar "include": ["src/"] após o objeto compilerOptions.
+
+9. Em scripts no package.json adicionar o "tsc": "tsc".
