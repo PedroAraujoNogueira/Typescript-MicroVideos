@@ -19,3 +19,4 @@ Nesse atributo estamos dizendo para fazer a compilação de qualquer arquivo
 Typescript usando o swc. 
 5. Vamos adicionar um compilador para Javascript chamado swc.
 npm i @swc/core @swc/jest --save-dev
+6. Em scripts no package.json adicionar o "test": "jest".

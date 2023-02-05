@@ -1,9 +1,9 @@
 1. Digite na pasta raiz do seu terminal: 
 docker-compose up --build 
+
+2. Abra outra janela do terminal e digite docker-compose exec app bash
 OU
 docker exec -it micro-videos-typescript-app bash
-
-2. Abra outra janela do terminal e digite docker-compose app bash
 
 3. Dentro do bash do app digite: npm init -y
 
@@ -29,3 +29,27 @@ typescript rode mais rápido.
 - Acrescentar "include": ["src/"] após o objeto compilerOptions.
 
 9. Em scripts no package.json adicionar o "tsc": "tsc".
+
+10. npm install jest @types/jest --save-dev
+
+11. npx jest --init
+11.1. Would you like to use Jest when running "test" script in "package.json"? … yes
+11.2. Would you like to use Typescript for the configuration file? … yes
+11.3. Choose the test environment that will be used for testing › node
+11.4. Do you want Jest to add coverage reports? … no
+11.5. Which provider should be used to instrument code for coverage? › v8
+11.6. Automatically clear mock calls, instances and results before every test? … yes
+
+12. No arquivo jest.config.ts:
+12.1. Descomente o rootDir: undefined e mude para rootDir: "src"
+12.2. Descomente o testRegex: [] e mude para testRegex: ".*\\..*spec\\.ts$"
+Nesse atributo definimos como o jest vai encontrar os arquivos de teste. 
+Toda vez que formos criar um arquivo de teste vamos usar o padrão: nomedoarquivo.spec.ts
+12.3. Descomente o transform: undefined e mude para transform: {"^.+\\.ts?$": ["@swc/jest"] }
+Nesse atributo estamos dizendo para fazer a compilação de qualquer arquivo 
+Typescript usando o swc. 
+
+13. Vamos adicionar um compilador para Javascript chamado swc.
+npm i @swc/core @swc/jest --save-dev
+
+14. Em scripts no package.json adicionar o "test": "jest".

@@ -3,7 +3,7 @@
 ### Como executar o projeto:  
 
 -> Digite na pasta raiz do seu terminal docker-compose up --build
--> Abra outra janela do terminal e digite docker-compose app bash
+-> Abra outra janela do terminal e digite docker-compose exec app bash
 -> Dentro do bash do app digite: npm install.
 
 ## Descrição do projeto:  
@@ -13,7 +13,8 @@ Nesse projeto estamos usando o Docker para desenvolver nossa aplicação com tod
 ### Requisitos de software e bibliotecas:  
 
 -> Node e NPM 
--> Docker e Docker-Compose   
+-> Docker e Docker-Compose  
+-> Jest 
 
 ### Links úteis:  
 
