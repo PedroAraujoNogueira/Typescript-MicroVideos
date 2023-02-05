@@ -1,7 +1,7 @@
 PIRÂMIDE DE TESTES E COMO ORGANIZA-LOS NOS JAVASCRIPT
 
 1. Normalmente a maior quantidade de testes feitos serão os testes unitários ou testes
-de unidade. Esses testes são mais rápidos e mais baratos e testar apenas uma 
+de unidade. Esses testes são mais rápidos e mais baratos e testam apenas uma 
 funcionalidade isolada.
 
 2. O próximo nível da pirâmide são os testes de integração. Esses teste já exigem a 
