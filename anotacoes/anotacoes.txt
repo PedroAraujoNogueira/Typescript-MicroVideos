@@ -27,6 +27,7 @@ typescript(tsconfig.json).
 typescript rode mais rápido.
 - Descomentar o "baseUrl": "./" e trocar para "baseUrl": "./src".
 - Acrescentar "include": ["src/"] após o objeto compilerOptions.
+- Descomentar o "strictNullChecks": true e trocar para "strictNullChecks": false 
 
 9. Em scripts no package.json adicionar o "tsc": "tsc".
 
@@ -53,3 +54,12 @@ Typescript usando o swc.
 npm i @swc/core @swc/jest --save-dev
 
 14. Em scripts no package.json adicionar o "test": "jest".
+
+15. O Lodash é uma biblioteca para manipulação de arrays, strings, objetos, números e etc,
+com vários métodos úteis. Como ele já vem instalado com outras bibliotecas que já 
+instalamos, então só precisamos instalar a tipagem dele:
+-> npm i --save-dev @types/lodash
+
+16. npm install uuid
+
+17. npm install @types/uuid --save-dev
