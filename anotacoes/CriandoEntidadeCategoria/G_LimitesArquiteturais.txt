@@ -1,0 +1,9 @@
+Limite Parcial é quando propositalmente rompemos um limite arquitetural para termos um
+ganho em facilidade de manutenção, tempo de desenvolvimento e outros fatores que sejam 
+relevantes e que façam valer a pena essa quebra de limite arquitetural.
+
+Ex: o custo de fazer um código similar ao do UUID para não termos que usar bibliotecas
+na nossa entidade pode ser muito alto e um pouco desnecessário, sendo assim podemos 
+usar a biblioteca UUID na entidade para gerar nosso ID único e dessa forma quebrar o limite 
+arquitetural entre a camada de bibliotecas/frameworks e a camada de entidades para 
+eliminarmos o alto custo que seria implementar um codigo similar ao dessa biblioteca. 
