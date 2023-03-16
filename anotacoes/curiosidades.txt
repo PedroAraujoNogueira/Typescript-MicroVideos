@@ -24,4 +24,20 @@ simplesmente não há como contornar. Por exemplo, durante os testes de unidade.
 https://www.typescriptlang.org/play?#code/PTAEGYDoA5QQwCYIM6gA4CcCWA3OAXAU1ADMtCAbFAGlAHcALLAYwfg2LnrgE9QB7EqASFmFONgB2Ac3igxcZKjKUEofPwBQIUACNiAV0lw8WcborF+B-MiwiBQ-A2LN+k-HCyTvshUtpvMQMEX3V+UGQDXX9kQmRITW0wADF+DFBCAA84AFs0S1pnYgAFQgxkd3lxJT1KfjphfnjQSX58eAoKBtJ0+Eked0M7GX7k0G9kT0lmKycXasVUDVAORFB1BbIK-AA5PMJaGr2DgQzMQjIspNjQMoqqgG9NDYBiban93MIALkj8KTSADcL1Ar2OX1+-0BILeFyufymMKSGzckiRBmYGgwAAoPidvoiAb4jooCVCkST0BwEdDfABKUDPDYbZxYBLvLA7SGgAC8pC5nwOsJZbI5ENO-Il3xFrKYHPhWCyfOplyVIoAvijQNIOIR8DjGcyWToAJKSCazcSSNRYDrs1UkcpwCzEFYGOJyEgGLqtU6TIjrQSgADaiqyAF1Q8djN8I6CNjoGPh8GhkD8QHQs5A6FB0tJgOaiBhjPgsO44BRgABHAzxMvuZA1uAAWjQ5UqxgoLdj8VeaAIGHcPFyLATEyEOOMOCw0gI6Ug1ukBjg0niIYADFHeTvQAAidl7o3j1GN-iWRf8aQ4gAGAHEAM8AB7gFoQq9oABJHmLIJzuQcGqgN+v7gmSkIaje9KyqAQGUJ6xosvIZ4Xt0143gAEpQ3Rfj+8p-uGQEgfhYFCt8kHQeOWobFqWqaJYHQAFblIQuR8PykiEI09ydjie4AFIsWxe60HuABChASFgwmiQAshgR4guMACa1jyK+ADkHRrh0KyvnwwbFNSuAEMQKhUMoQ65AINh2A4zgEIsSg-EkOhpBk2R5AUhybA6dDuFp9DpAA1i5aKVKhV44sxHBsX+0qEJR4y7H0YphShhCXtee48QFqDHH6hIiaAMWsTwIZ7qR5J7hGSU6AAgshuS5FUtb1uWFp0MQOkTKge4AOoMHw-k+mogwGKAHpuvKAg4OUmzEBpmAmUQGnjMFhA8P5GC2haXCxOZCAAPx7qALagAxGn5fw-DBXofC5HAwVhPt-D5FJnbhOMDA9HaQUYBtu2gAAKjw7YAMrMNgaAdPoJDpMQUDQC5mi3AAIleTKgsteBEKAAD6vZEsip7ogCmLYlOBzEwyWNIb+hOSoVhCapodEMQIujsa0XGgBj2UAPJc4p4z9QFHQc+N8DMLMtQzlwCDtK07QEB1mj8FzkCM98Kp7uDaDtHuII6GJNgg2DhCQ9DHSVt0dCoLoGBwMwG0dG0ngNntqCvpkyDMHA7aLFN6tcxV2uEDVusAMIuCWPBG65YDAwsoMQ1DWAw6slwsTMczGbjViSBQfDZOytjwLpFstpYc0UOMjAsGw3yvssDCOVL-sWu4xfqBgHr2h0lSkBIkCgP1dpsDjpkCqoyDjJUVQrPocgDhgHSGQs-EmHAVsZxLr7LquPnFBaHc+49G11Cm5TjIfTseIQLQutYukLDOdi6GYdoGUI40ZG4IhEii2IIrSQgUCg+yqCIC4-syyjCMjeKeRAbwzyoKADaW10gIHGN4c2adra0CHn-TIWQy5hAAcQOgZgKDIQ8N4Os4R-rBVoLoM2bQ6DjDPp1bAeMKH0CYKwXq1R+BxAyCsIyW88C70zkuFca4Jhk0kggIBOhVITU7hdSSJZQAtQ4PAXQL8nLKHIBZBRC11DMHAAATmpPwA2yBKzfRTGmDMwBpAT2iJANwuRgD4EsVY4AmA7EiMrC2WILZDpNnGK+NQRl9CeCzpYRQxB3bxBckmZx6YQAiBwBYK8CRRxQxEYIfAXi3q+Itn7a2wBXxtCMMwXwLZ8CVPTjDFs4AWzQBbPEuAwBXiiEelUvebZsAFwiSYlAQA
 
 
-4. 
+4. Propriedade "clearMocks: true" das configurações do jest. Essa propriedade serve para limparmos os mocks e os SpyOn antes de começarmos 
+a execução de um novo metodo de teste. Podemos substituir a propriedade "clearMocks: true" pelo metodo:
+beforeEach(() => {
+    jest.clearAllMocks();
+})
+A vantagem de usar o método ao invés da propriedade é que com o metodo nós podemos escolher limpar os mocks somente em alguns arquivos de teste,
+pois as vezes em alguns testes podemos não querer limpar os mocks, logo com o metodo temos essa flexibilidade pois só limparemos os mocks nas 
+classes de teste que têm esse método. A desvantagem é que teremos que repetir essse metodo em todas as classes que desejarmos limpar os mocks.
+-> Podemos também limpar somente uma propriedade específica, ou seja, podemos limpar somente uma propriedade do mock e não o mock todo, por exemplo:
+
+const validateSpy = jest.spyOn(UniqueEntityId.prototype as any, 'validate');
+    
+beforeEach(() => {
+    validateSpy.mockClear();  Limpa somente os mocks da variavel validateSpy.
+})
+
+5. 
