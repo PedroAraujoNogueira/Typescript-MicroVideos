@@ -1,0 +1,15 @@
+Propriedade "clearMocks: true" das configurações do jest. Essa propriedade serve para limparmos os mocks e os SpyOn antes de começarmos 
+a execução de um novo metodo de teste. Podemos substituir a propriedade "clearMocks: true" pelo metodo:
+beforeEach(() => {
+    jest.clearAllMocks();
+})
+A vantagem de usar o método ao invés da propriedade é que com o metodo nós podemos escolher limpar os mocks somente em alguns arquivos de teste,
+pois as vezes em alguns testes podemos não querer limpar os mocks, logo com o metodo temos essa flexibilidade pois só limparemos os mocks nas 
+classes de teste que têm esse método. A desvantagem é que teremos que repetir essse metodo em todas as classes que desejarmos limpar os mocks.
+-> Podemos também limpar somente uma propriedade específica, ou seja, podemos limpar somente uma propriedade do mock e não o mock todo, por exemplo:
+
+const validateSpy = jest.spyOn(UniqueEntityId.prototype as any, 'validate');
+    
+beforeEach(() => {
+    validateSpy.mockClear();  Limpa somente os mocks da variavel validateSpy.
+})
