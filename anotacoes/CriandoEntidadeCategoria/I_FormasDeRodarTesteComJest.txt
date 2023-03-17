@@ -1,0 +1,20 @@
+1. npm run test -> Roda todos os testes.
+
+2. npm run test nomeDoArquivo -> Roda todos os testes daquele arquivo.
+Ex: npm run test unique-entity-id.vo.spec.ts
+
+3. npm run test caminhoAteChegarNoArquivo -> Roda todos os testes daquele arquivo, a diferença desse forma para o item acima é que dessa 
+forma, colocando o caminho completo, nós evitamos rodar dois arquivos com o mesmo nome.
+Ex: npm run test src/@seedwork/domain/unique-entity-id.vo.spec.ts
+
+4. npm run test -- -t "fraseDeAlgumDescribe" -> Roda todos os testes que estiverem dentro desse describe. Podemos inclusive passar 
+uma expressão regular.
+Ex: npm run test -- -t "UniqueEntityId unit test"
+
+5. npm run test -- -t "fraseDeAlgumDescribe" nomeDoArquivo -> Roda os mesmos testes do item acima, porém nesse caso ele procura o describe 
+apenas no arquivo que passamos, enquanto no exemplo acima o jest vai procurar por esse describe em todos os arquivos de teste.
+Ex: npm run test -- -t "UniqueEntityId unit test" unique-entity-id.vo.spec.ts
+
+6. npm run test -- -t "fraseDeAlgumTest" nomeDoArquivo -> Roda somente os testes que tiverem essa frase e procura pelos testes somente no 
+arquivo especificado.
+Ex: npm run test -- -t "should to throw error when id is invalid" unique-entity-id.vo.spec.ts
